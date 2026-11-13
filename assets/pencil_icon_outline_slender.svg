@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="細長い鉛筆アイコン">
+  <g transform="rotate(45 32 32)" fill="none" stroke="#0F924B" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Slender, long pencil silhouette with a short eraser and tapered wooden point -->
+    <path d="M28 5.5H36A2.5 2.5 0 0 1 38.5 8V45.5L32 59L25.5 45.5V8A2.5 2.5 0 0 1 28 5.5Z"/>
+    <!-- Eraser and ferrule: short compared with the full pencil length -->
+    <path d="M25.5 12.5H38.5M25.5 17.5H38.5"/>
+    <!-- Shaft facet and start of sharpened point -->
+    <path d="M32 17.5V45.5M25.5 45.5H38.5"/>
+    <!-- Graphite tip -->
+    <path d="M29.1 53L32 59L34.9 53"/>
+  </g>
+</svg>
