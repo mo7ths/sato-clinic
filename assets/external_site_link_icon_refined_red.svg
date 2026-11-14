@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="116 22 344 344" width="64" height="64" role="img" aria-label="外部サイトへのリンク">
+  <g fill="#FF4F4B">
+    <!-- Open-corner rounded square, recreated as a filled outline -->
+    <path d="M192 67H321.5V99.5H192C175.2 99.5 161.5 113.2 161.5 130V290C161.5 306.8 175.2 320.5 192 320.5H352C368.8 320.5 382.5 306.8 382.5 290V167H414.5V290C414.5 324.5 386.5 352.5 352 352.5H192C157.5 352.5 129.5 324.5 129.5 290V130C129.5 95.5 157.5 67 192 67Z"/>
+    <!-- Diagonal arrow and arrowhead -->
+    <path d="M271 189.6 371.2 87.1 342.4 58 447.5 35.8 430.6 143 401.1 115 300.4 217.9Z"/>
+  </g>
+</svg>
