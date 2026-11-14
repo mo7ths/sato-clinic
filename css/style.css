@@ -1691,6 +1691,119 @@ h3 {
     mask-image: linear-gradient(to right, transparent 0, black 20%)
 }
 
+#staff-profile-1 .staff-modal-content,
+#staff-profile-2 .staff-modal-content,
+#staff-profile-3 .staff-modal-content,
+#staff-profile-4 .staff-modal-content {
+    border-radius: 6px
+}
+
+#staff-profile-1 .staff-modal-copy,
+#staff-profile-2 .staff-modal-copy {
+    width: 454px
+}
+
+#staff-profile-1 .staff-modal-copy blockquote,
+#staff-profile-2 .staff-modal-copy blockquote,
+#staff-profile-3 .staff-modal-copy blockquote,
+#staff-profile-4 .staff-modal-copy blockquote {
+    position: absolute;
+    left: 40px;
+    right: 20px;
+    bottom: 40px;
+    margin: 0;
+    border-radius: 5px
+}
+
+#staff-profile-1 .staff-modal-photo,
+#staff-profile-2 .staff-modal-photo {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 212px;
+    height: 336px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 32px);
+    mask-image: linear-gradient(to right, transparent, black 32px)
+}
+
+#staff-profile-1 .staff-modal-photo img {
+    position: absolute;
+    width: auto;
+    max-width: none;
+    height: 407.687px;
+    left: -364.278px;
+    top: -34.163px
+}
+
+#staff-profile-2 .staff-modal-copy {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0
+}
+
+#staff-profile-2 .staff-modal-text-group,
+#staff-profile-3 .staff-modal-text-group,
+#staff-profile-4 .staff-modal-text-group {
+    width: 100%
+}
+
+#staff-profile-2 .staff-modal-copy blockquote,
+#staff-profile-3 .staff-modal-copy blockquote,
+#staff-profile-4 .staff-modal-copy blockquote {
+    position: static;
+    margin: 37.2px 0 0
+}
+
+#staff-profile-2 .staff-modal-photo img {
+    position: absolute;
+    width: auto;
+    max-width: none;
+    height: 336px;
+    left: -314px;
+    top: 0
+}
+
+#staff-profile-3 .staff-modal-copy,
+#staff-profile-4 .staff-modal-copy {
+    width: 460px;
+    margin-left: auto;
+    padding: 0 40px 0 26px;
+    display: flex;
+    align-items: center
+}
+
+#staff-profile-3 .staff-modal-photo,
+#staff-profile-4 .staff-modal-photo {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 212px;
+    height: 336px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to left, transparent, black 32px);
+    mask-image: linear-gradient(to left, transparent, black 32px)
+}
+
+#staff-profile-3 .staff-modal-photo img {
+    position: absolute;
+    width: auto;
+    max-width: none;
+    height: 336px;
+    left: -174px;
+    top: 0
+}
+
+#staff-profile-4 .staff-modal-photo img {
+    position: absolute;
+    width: auto;
+    max-width: none;
+    height: 336px;
+    left: -34px;
+    top: 0
+}
+
 .staff-modal-content.reverse {
     flex-direction: row-reverse
 }
