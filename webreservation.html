@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="佐藤医院（架空のサンプルサイト）のWeb予約フォーム">
+  <title>Web予約 | 佐藤医院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="sc-extra-page sc-extra-page-reservation">
+  <header class="sc-extra-site-header">
+    <div class="sc-extra-back-strip"><a class="sc-extra-back-link" href="index.html"><span class="sc-extra-back-chevron" aria-hidden="true"></span>戻る</a></div>
+    <div class="sc-extra-brand-strip"><a href="menuopen.html" class="sc-extra-brand-name">佐藤医院</a></div>
+  </header>
+
+  <main>
+    <div class="sc-extra-page-intro">
+      <h1>Web予約</h1>
+      <p>当院では、Webから診療のご予約を受け付けています。以下の項目をご入力のうえ、ご予約ください。</p>
+    </div>
+
+    <form class="sc-extra-form-card sc-extra-reservation-card" aria-label="Web予約フォーム">
+      <section class="sc-extra-form-step sc-extra-reservation-step-1" aria-labelledby="reservation-step-1">
+        <h2 class="sc-extra-step-heading" id="reservation-step-1"><span class="sc-extra-step-number">1</span><span>受診内容を選択</span></h2>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-start">
+          <legend class="sc-extra-field-label">受診区分 <span class="sc-extra-required">*</span></legend>
+          <div class="sc-extra-option-grid sc-extra-two-col sc-extra-reservation-options">
+            <label class="sc-extra-choice"><input type="radio" name="visit" value="first" checked><span>初診の方</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="visit" value="return"><span>再診の方</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-visit-type">
+          <legend class="sc-extra-field-label">診療内容 <span class="sc-extra-required">*</span></legend>
+          <div class="sc-extra-option-grid sc-extra-two-col sc-extra-reservation-options">
+            <label class="sc-extra-choice"><input type="radio" name="department" value="internal" checked><span>一般内科</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="lifestyle"><span>生活習慣病</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="cardio"><span>循環器系</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="respiratory"><span>呼吸器系</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="digestive"><span>消化器系</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="checkup"><span>健康診断・各種検査</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="vaccine"><span>予防接種</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="department" value="smoking"><span>禁煙外来</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="sc-extra-form-step sc-extra-reservation-step-2" aria-labelledby="reservation-step-2">
+        <h2 class="sc-extra-step-heading" id="reservation-step-2"><span class="sc-extra-step-number">2</span><span>希望日時を選択</span></h2>
+        <div class="sc-extra-form-field sc-extra-field-start">
+          <label class="sc-extra-field-label" for="visit-date">ご希望日 <span class="sc-extra-required">*</span></label>
+          <div class="sc-extra-input-with-icon">
+            <input id="visit-date" name="visit_date" type="date" lang="en-US" aria-required="true">
+            <span class="sc-extra-calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M7 2v6M17 2v6M3 10h18"/><path d="M7 13h2M12 13h2M17 13h0M7 17h2M12 17h2M17 17h0"/></svg></span>
+          </div>
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="visit-time">ご希望時間帯 <span class="sc-extra-required">*</span></label>
+          <div class="sc-extra-select-wrap">
+            <select id="visit-time" name="visit_time" aria-required="true">
+              <option value="" selected>時間帯を選択してください</option>
+              <option value="morning">午前 09:00〜12:00</option>
+              <option value="afternoon">午後 13:00〜18:00</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="sc-extra-form-step sc-extra-reservation-step-3" aria-labelledby="reservation-step-3">
+        <h2 class="sc-extra-step-heading" id="reservation-step-3"><span class="sc-extra-step-number">3</span><span>患者さま情報を入力</span></h2>
+        <div class="sc-extra-form-field sc-extra-field-start">
+          <label class="sc-extra-field-label" for="reserve-name">お名前 <span class="sc-extra-required">*</span></label>
+          <input class="sc-extra-text-input" id="reserve-name" name="name" type="text" autocomplete="name" placeholder="例：山田 太郎" aria-required="true">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="reserve-kana">フリガナ <span class="sc-extra-required">*</span></label>
+          <input class="sc-extra-text-input" id="reserve-kana" name="kana" type="text" placeholder="例：ヤマダ タロウ" aria-required="true">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="birthdate">生年月日 <span class="sc-extra-required">*</span></label>
+          <div class="sc-extra-input-with-icon">
+            <input id="birthdate" name="birthdate" type="date" lang="en-US" aria-required="true">
+            <span class="sc-extra-calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M7 2v6M17 2v6M3 10h18"/><path d="M7 13h2M12 13h2M17 13h0M7 17h2M12 17h2M17 17h0"/></svg></span>
+          </div>
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="reserve-email">メールアドレス</label>
+          <input class="sc-extra-text-input" id="reserve-email" name="email" type="email" autocomplete="email" placeholder="例：info@example.com">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="reserve-phone">電話番号 <span class="sc-extra-required">*</span></label>
+          <input class="sc-extra-text-input" id="reserve-phone" name="phone" type="tel" autocomplete="tel" placeholder="例：000-0000-0000" aria-required="true">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="reserve-message">ご連絡事項</label>
+          <textarea class="sc-extra-text-area sc-extra-tall" id="reserve-message" name="message" placeholder="必要な場合のみご記入ください。症状の詳細はWeb問診でお伺いします。"></textarea>
+        </div>
+      </section>
+      <button class="sc-extra-confirm-button" type="button" title="静的なデザインサンプルのため、予約の送信機能はありません。">入力内容を確認する</button>
+    </form>
+  </main>
+
+  <footer class="sc-extra-site-footer">
+    <p>本サイトは職業訓練の学習用に制作した架空のサンプルサイトです。</p>
+    <p>掲載している医院・人物・連絡先・所在地はすべて架空であり、実在のものとは関係ありません。</p>
+    <p class="sc-extra-copyright">©佐藤医院</p>
+  </footer>
+</body>
+</html>

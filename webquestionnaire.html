@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="佐藤医院（架空のサンプルサイト）のWeb問診フォーム">
+  <title>Web問診 | 佐藤医院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="sc-extra-page sc-extra-page-questionnaire">
+  <header class="sc-extra-site-header">
+    <div class="sc-extra-back-strip"><a class="sc-extra-back-link" href="index.html"><span class="sc-extra-back-chevron" aria-hidden="true"></span>戻る</a></div>
+    <div class="sc-extra-brand-strip"><a href="menuopen.html" class="sc-extra-brand-name">佐藤医院</a></div>
+  </header>
+
+  <main>
+    <div class="sc-extra-page-intro">
+      <h1>Web問診</h1>
+      <p>診察をスムーズに進めるため、事前にWeb問診へのご回答をお願いいたします。</p>
+    </div>
+
+    <form class="sc-extra-form-card sc-extra-questionnaire-card" aria-label="Web問診フォーム">
+      <section class="sc-extra-form-step sc-extra-questionnaire-step-1" aria-labelledby="questionnaire-step-1">
+        <h2 class="sc-extra-step-heading" id="questionnaire-step-1"><span class="sc-extra-step-number">1</span><span>患者さまについて</span></h2>
+        <div class="sc-extra-form-field sc-extra-field-start">
+          <label class="sc-extra-field-label" for="question-name">お名前 <span class="sc-extra-required">*</span></label>
+          <input class="sc-extra-text-input" id="question-name" name="name" type="text" autocomplete="name" placeholder="例：山田 太郎" aria-required="true">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="question-kana">フリガナ <span class="sc-extra-required">*</span></label>
+          <input class="sc-extra-text-input" id="question-kana" name="kana" type="text" placeholder="例：ヤマダ タロウ" aria-required="true">
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after">
+          <label class="sc-extra-field-label" for="question-birthday">生年月日 <span class="sc-extra-required">*</span></label>
+          <div class="sc-extra-input-with-icon">
+            <input id="question-birthday" name="birthdate" type="date" lang="en-US" aria-required="true">
+            <span class="sc-extra-calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M7 2v6M17 2v6M3 10h18"/><path d="M7 13h2M12 13h2M17 13h0M7 17h2M12 17h2M17 17h0"/></svg></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sc-extra-form-step sc-extra-questionnaire-step-2" aria-labelledby="questionnaire-step-2">
+        <h2 class="sc-extra-step-heading" id="questionnaire-step-2"><span class="sc-extra-step-number">2</span><span>現在の症状について</span></h2>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-start">
+          <legend class="sc-extra-field-label">現在の症状をお選びください（複数選択可）</legend>
+          <div class="sc-extra-option-grid sc-extra-two-col sc-extra-questionnaire-options">
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="fever" checked><span>発熱</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="cough"><span>咳・たん</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="breath"><span>息切れ</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="palpitations"><span>動悸</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="chest"><span>胸の違和感</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="abdominal"><span>腹痛・胃腸の症状</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="headache"><span>頭痛・めまい</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="symptom" value="other"><span>その他</span></label>
+          </div>
+        </fieldset>
+        <div class="sc-extra-form-field sc-extra-after-radio">
+          <label class="sc-extra-field-label" for="symptom-start">症状が始まった時期</label>
+          <div class="sc-extra-select-wrap"><select id="symptom-start" name="symptom_start">
+            <option value="" selected>選択してください</option>
+            <option value="today">今日</option>
+            <option value="recent">2〜3日前</option>
+            <option value="week">1週間ほど前</option>
+            <option value="month">1か月以上前</option>
+          </select></div>
+        </div>
+        <div class="sc-extra-form-field sc-extra-field-text-after sc-extra-field-compact-label">
+          <label class="sc-extra-field-label sc-extra-small-label" for="symptom-details">症状について詳しくお聞かせください</label>
+          <textarea class="sc-extra-text-area sc-extra-tall" id="symptom-details" name="symptom_details" placeholder="いつから、どのような症状があるかなど、ご自由にご記入ください。"></textarea>
+        </div>
+      </section>
+
+      <section class="sc-extra-form-step sc-extra-questionnaire-step-3" aria-labelledby="questionnaire-step-3">
+        <h2 class="sc-extra-step-heading" id="questionnaire-step-3"><span class="sc-extra-step-number">3</span><span>健康状態・お薬について</span></h2>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-start">
+          <legend class="sc-extra-field-label">治療中・治療歴のある病気（複数選択可）</legend>
+          <div class="sc-extra-option-grid sc-extra-two-col sc-extra-questionnaire-options">
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="blood_pressure" checked><span>高血圧</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="diabetes"><span>糖尿病</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="cholesterol"><span>脂質異常症</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="heart"><span>心臓の病気</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="lung"><span>呼吸器の病気</span></label>
+            <label class="sc-extra-choice"><input type="checkbox" name="medical_history" value="other"><span>その他</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-after-radio">
+          <legend class="sc-extra-field-label">現在、服用している薬 <span class="sc-extra-required">*</span></legend>
+          <div class="sc-extra-option-grid sc-extra-three-col sc-extra-questionnaire-options">
+            <label class="sc-extra-choice"><input type="radio" name="has_medicine" value="yes" checked><span>ある</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="has_medicine" value="no"><span>ない</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="has_medicine" value="unknown"><span>わからない</span></label>
+          </div>
+        </fieldset>
+        <div class="sc-extra-form-field sc-extra-after-radio sc-extra-field-compact-label">
+          <label class="sc-extra-field-label sc-extra-small-label" for="medicine-details">お薬の名前など</label>
+          <textarea class="sc-extra-text-area sc-extra-medium" id="medicine-details" name="medicine_details" placeholder="「ある」を選んだ方は、わかる範囲でご記入ください。"></textarea>
+        </div>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-text-after">
+          <legend class="sc-extra-field-label">薬や食べ物などのアレルギー <span class="sc-extra-required">*</span></legend>
+          <div class="sc-extra-option-grid sc-extra-three-col sc-extra-questionnaire-options">
+            <label class="sc-extra-choice"><input type="radio" name="has_allergy" value="yes" checked><span>ある</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="has_allergy" value="no"><span>ない</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="has_allergy" value="unknown"><span>わからない</span></label>
+          </div>
+        </fieldset>
+        <div class="sc-extra-form-field sc-extra-after-radio sc-extra-field-compact-label">
+          <label class="sc-extra-field-label sc-extra-small-label" for="allergy-details">アレルギーの内容</label>
+          <textarea class="sc-extra-text-area sc-extra-medium" id="allergy-details" name="allergy_details" placeholder="「ある」を選んだ方は、わかる範囲でご記入ください。"></textarea>
+        </div>
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-text-after">
+          <legend class="sc-extra-field-label">喫煙について</legend>
+          <div class="sc-extra-option-grid sc-extra-three-col sc-extra-questionnaire-options">
+            <label class="sc-extra-choice"><input type="radio" name="smoking" value="current" checked><span>吸っている</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="smoking" value="past"><span>以前吸っていた</span></label>
+            <label class="sc-extra-choice"><input type="radio" name="smoking" value="never"><span>吸わない</span></label>
+          </div>
+        </fieldset>
+        <div class="sc-extra-form-field sc-extra-after-radio">
+          <label class="sc-extra-field-label" for="consultation">診察時に相談したいことがあればご記入ください。</label>
+          <textarea class="sc-extra-text-area sc-extra-tall" id="consultation" name="consultation" placeholder="自由入力"></textarea>
+        </div>
+      </section>
+      <button class="sc-extra-confirm-button" type="button" title="静的なデザインサンプルのため、問診の送信機能はありません。">回答内容を確認する</button>
+    </form>
+
+    <div class="sc-extra-questionnaire-notes" aria-label="Web問診についての注意事項">
+      <p class="sc-extra-warning-note"><a href="webreservation.html">・Web問診だけでは診療予約は完了しません。予約が必要な場合は、先にWeb予約のお手続をお願いします。</a></p>
+      <p>・症状がない場合は、健康診断や定期受診などの目的をお選びください。</p>
+      <p>・わからない項目は、わかる範囲でお答えください。</p>
+    </div>
+  </main>
+
+  <footer class="sc-extra-site-footer">
+    <p>本サイトは職業訓練の学習用に制作した架空のサンプルサイトです。</p>
+    <p>掲載している医院・人物・連絡先・所在地はすべて架空であり、実在のものとは関係ありません。</p>
+    <p class="sc-extra-copyright">©佐藤医院</p>
+  </footer>
+</body>
+</html>
