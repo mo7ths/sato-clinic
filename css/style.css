@@ -706,26 +706,32 @@ h3 {
     object-fit: cover;
     object-position: center;
     opacity: 0;
-    animation-delay: 12s;
+    animation-delay: 12s, var(--hero-zoom-delay);
     animation-duration: 36s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: both;
-    will-change: opacity;
+    will-change: opacity, transform;
     backface-visibility: hidden;
     pointer-events: none
 }
 
 .hero-slide-one {
-    animation-name: hero-patient
+    --hero-zoom-delay: 0s;
+    transform-origin: 65% 45%;
+    animation-name: hero-patient, hero-zoom
 }
 
 .hero-slide-two {
-    animation-name: hero-medical
+    --hero-zoom-delay: 12s;
+    transform-origin: 55% 40%;
+    animation-name: hero-medical, hero-zoom
 }
 
 .hero-slide-three {
-    animation-name: hero-information
+    --hero-zoom-delay: 24s;
+    transform-origin: 70% 55%;
+    animation-name: hero-information, hero-zoom
 }
 
 /* Every 12s a new 10s dissolve starts (after the initial 12s hold). */
@@ -776,6 +782,22 @@ h3 {
     94.4445%,
     100% {
         opacity: 0
+    }
+}
+
+/* Zoom through each 22s visible interval; reset only after the fade-out. */
+@keyframes hero-zoom {
+    0% {
+        transform: scale(1)
+    }
+
+    61.1111% {
+        transform: scale(1.2)
+    }
+
+    61.1112%,
+    100% {
+        transform: scale(1)
     }
 }
 
