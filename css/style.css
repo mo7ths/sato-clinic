@@ -690,7 +690,46 @@ h3 {
     margin-top: 24px
 }
 
+/* Viewport-fixed actions stay below the header and modal layers. */
+.floating-actions {
+    position: fixed;
+    right: max(32px, env(safe-area-inset-right, 0px));
+    bottom: max(32px, env(safe-area-inset-bottom, 0px));
+    z-index: 15;
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    width: 240px;
+    height: 80px
+}
+
+.floating-actions > img {
+    position: absolute;
+    inset: 0;
+    width: 240px;
+    height: 80px;
+    pointer-events: none
+}
+
+.floating-actions > a {
+    position: relative;
+    display: block;
+    height: 80px
+}
+
 /* TOP */
+.hero-wrap {
+    position: relative
+}
+
+.hero-access-badge {
+    position: absolute;
+    z-index: 4;
+    right: 64px;
+    bottom: -16px;
+    width: 144px;
+    height: 144px
+}
+
 .hero {
     position: relative;
     width: 100%;
@@ -2922,6 +2961,10 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
 
 @media (max-width: 767px) {
     html { scroll-padding-top: 24px; }
+    .floating-actions {
+        right: max(16px, env(safe-area-inset-right, 0px));
+        bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    }
     .site-header { height: 76px; }
     .site-logo { top: 20px; left: 16px; width: 120px; height: 36px; }
     .site-logo img { width: 120px; height: 36px; }
@@ -2933,6 +2976,7 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     .page-title { padding: 48px 20px 32px; }
     .page-title h1 { font-size: 28px; }
     .hero { height: 420px; }
+    .hero-access-badge { right: 16px; }
     .hero-slide { top: 0; left: 0; width: 100%; height: 100%; object-position: 65% center; }
     .hero-title { top: 50%; transform: translate(-50%, -50%) scale(.7142857); }
     .home-intro { padding: 64px 20px; }
@@ -2959,8 +3003,8 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     .foot-phone span { display: block; margin-left: 0; }
     .foot-reservation, .foot-small-actions { max-width: 100%; }
     .foot-small-actions a { flex: 1; min-width: 0; }
-    .footer-nav { width: calc(100% - 40px); grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; gap: 28px 20px; }
-    .footer-nav > div:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
+    .footer-nav { width: fit-content; max-width: calc(100% - 40px); grid-template-columns: repeat(2, max-content); margin-top: 48px; gap: 28px 20px; }
+    .footer-nav > div:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; gap: 12px 20px; }
     .footer-nav > div:last-child > b { grid-column: 1 / -1; }
     .footer-notice { width: calc(100% - 40px); margin-top: 56px; }
     .schedule-wrap { min-width: 0; width: 100%; }
@@ -2974,10 +3018,20 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     .faq-content, .access-main, .contact-main { width: calc(100% - 40px); }
     .news-page-content, .faq-content, .access-main, .contact-main { margin-top: 32px; margin-bottom: 80px; }
     .news-filters { flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+    .news-filters a { padding-inline: 10px; }
     .news-card { margin-bottom: 40px; padding-bottom: 32px; }
     .news-card .news-meta { gap: 20px; }
 
     .about-greeting { width: calc(100% - 40px); margin-top: 24px; }
+    .about-greeting > .about-photo-greeting {
+        width: calc(min(100%, max(240px, calc(100vw - 160px))) - 64px);
+        aspect-ratio: 1;
+        -webkit-mask-image: none; mask-image: none;
+    }
+    .about-photo-greeting > img {
+        left: 50%; top: 0; width: 175%; height: auto;
+        transform: translateX(-67%);
+    }
     .about-feature, .about-future, .about-feature:nth-of-type(4) { padding: 56px 0; }
     .about-feature-inner { width: calc(100% - 40px); grid-template-columns: minmax(0, 1fr); gap: 32px; }
     .about-feature-inner > .about-photo { width: min(396px, 100%); justify-self: center; }
@@ -2985,7 +3039,7 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     .about-philosophy { padding: 56px 20px; }
     .about-philosophy h2 { font-size: 26px; }
     .philosophy-lists { grid-template-columns: minmax(0, 1fr); gap: 0; }
-    .philosophy-lists li { padding-inline: 12px; }
+    .philosophy-lists li { padding-inline: 0; }
     .philosophy-lists ol + ol li:first-child { border-top: 0; }
     .philosophy-lists h3 { font-size: 20px; }
     .about-facilities { padding: 64px 0 80px; }
@@ -3007,7 +3061,7 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     .faq-group, .faq-group:first-of-type, .faq-group:nth-of-type(3) { margin-top: 64px; }
     .faq-group h2 { font-size: 24px; }
     .faq-list { margin-top: 24px; }
-    .faq-item summary { padding: 16px 0; min-height: 72px; }
+    .faq-item summary { margin-inline: -16px; padding: 16px 0; min-height: 72px; }
     .faq-item summary > b, .faq-chevron { flex: none; }
     .faq-answer { width: 100%; padding-left: 30px; }
     .faq-related { gap: 20px; }
@@ -3062,6 +3116,82 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
     body.sc-extra-page .sc-extra-hours-row span { font-size: 10px; }
 }
 
+/* Widen only mobile text gutters; retain about 240px of readable text width. */
+@media (max-width: 767px) {
+    .page-title h1,
+    .home-intro h2,
+    .home-hours-copy,
+    .home-hours .schedule-wrap,
+    .site-footer .schedule-wrap,
+    .home-news-item .news-meta,
+    .home-news-item p,
+    .reservation-strip h2,
+    .reservation-strip > p,
+    .message-text h2,
+    .message-text p,
+    .news-page-content,
+    .news-card > .news-meta,
+    .news-card > h2,
+    .news-card > p,
+    .greeting-copy,
+    .about-feature-copy,
+    .about-philosophy-inner > h2,
+    .about-philosophy-inner > p,
+    .philosophy-lists,
+    .philosophy-lists h3,
+    .philosophy-lists p,
+    .facility-grid figcaption,
+    .staff-description,
+    .service-content > p,
+    .faq-content,
+    .faq-intro,
+    .faq-group > h2,
+    .faq-answer,
+    .faq-outro,
+    .access-information,
+    .access-information dt,
+    .access-information dd:not(.access-links),
+    .access-method > h2,
+    .access-method > p,
+    .access-caution,
+    .contact-summary > p,
+    .contact-form,
+    .privacy-description,
+    .privacy-details,
+    .foot-address,
+    .foot-phone,
+    .schedule-notes,
+    .schedule-caution,
+    .footer-notice,
+    body.sc-extra-page .sc-extra-menu-panel,
+    body.sc-extra-page .sc-extra-page-intro > h1,
+    body.sc-extra-page .sc-extra-page-intro > p,
+    body.sc-extra-page .sc-extra-questionnaire-notes,
+    body.sc-extra-page .sc-extra-site-footer > p {
+        max-width: min(100%, max(240px, calc(100vw - 160px)));
+        margin-inline: auto;
+    }
+
+    .page-home .message-text {
+        width: min(100%, max(240px, calc(100vw - 160px)));
+        margin-inline: auto;
+    }
+
+    .message-text > .small-en,
+    .about-philosophy-inner > .small-en {
+        display: block;
+        max-width: min(100%, max(240px, calc(100vw - 160px)));
+        margin-inline: auto;
+    }
+
+    .access-information dt,
+    .access-information dd:not(.access-links) { width: 100%; }
+    .home-hours .schedule-notes,
+    .site-footer .schedule-notes { width: 100%; margin-inline: 0; }
+    .faq-answer { padding-left: 0; }
+    .service-heading { padding-inline: clamp(20px, calc((100% - 240px) / 2), 60px); }
+}
+
 @media (max-width: 767px), (max-width: 1199px) and (max-height: 600px) {
     .staff-modal .staff-modal-content { width: calc(100% - 32px); max-width: 682px; height: auto; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); flex-direction: column; overflow-y: auto; }
     :is(#staff-profile-1, #staff-profile-2, #staff-profile-3, #staff-profile-4) .staff-modal-copy { width: 100%; margin: 0; padding: 24px; display: block; order: 2; flex: none; }
@@ -3078,6 +3208,7 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
 }
 
 @media (max-width: 767px) {
+    :is(#staff-profile-1, #staff-profile-2, #staff-profile-3, #staff-profile-4) .staff-modal-copy { padding-inline: clamp(24px, calc((100vw - 272px) / 2), 64px); }
     #staff-profile-1 .staff-modal-photo { width: 250px; max-width: 100%; height: 330px; margin: 0 auto; }
     #staff-profile-1 .staff-modal-photo img { inset: auto; left: -397px; top: -43px; width: auto; height: 440px; object-fit: initial; }
     :is(#staff-profile-2, #staff-profile-3, #staff-profile-4) .staff-modal-photo { width: 250px; max-width: 100%; height: 330px; margin: 0 auto; }
