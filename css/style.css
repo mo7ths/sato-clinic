@@ -2962,9 +2962,35 @@ body.sc-extra-page .sc-extra-contact-item svg { width: 16px; height: 18px; color
 @media (max-width: 767px) {
     html { scroll-padding-top: 24px; }
     .floating-actions {
-        right: max(16px, env(safe-area-inset-right, 0px));
-        bottom: max(16px, env(safe-area-inset-bottom, 0px));
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .floating-actions > img { display: none; }
+    .floating-actions > a {
+        height: 60px;
+    }
+    .floating-actions > a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min(228px, calc(100% - 4px));
+        height: 60px;
+        transform: translateX(-50%);
+        pointer-events: none;
+        background: url("../assets/floating-button-mobile.svg") no-repeat;
+        background-size: 464px 60px;
+    }
+    .floating-actions > a:first-of-type { background: #FF4F4B; }
+    .floating-actions > a:first-of-type::before { background-position: calc(50% + 116px) center; }
+    .floating-actions > a:last-of-type {
+        background: #fff;
+        box-shadow: inset 0 0 0 2px #0F924B;
+    }
+    .floating-actions > a:last-of-type::before { background-position: calc(50% - 116px) center; }
     .site-header { height: 76px; }
     .site-logo { top: 20px; left: 16px; width: 120px; height: 36px; }
     .site-logo img { width: 120px; height: 36px; }
