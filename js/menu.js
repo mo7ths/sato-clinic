@@ -73,6 +73,10 @@
 
     let savedPage = null;
     let ready = false;
+    let openingFrame = 0;
+    let closingTimer = 0;
+    let closing = false;
+    let closeTransitionEnd = null;
     const restoreStyle = (element, style) => {
         if (style === null) element.removeAttribute('style');
         else element.setAttribute('style', style);
@@ -89,9 +93,46 @@
         restoreStyle(document.documentElement, saved.rootStyle);
         openers.forEach((link) => link.setAttribute('aria-expanded', 'false'));
     };
-    const closeMenu = () => {
+    const finishClose = () => {
+        if (closingTimer) {
+            window.clearTimeout(closingTimer);
+            closingTimer = 0;
+        }
+        if (closeTransitionEnd) {
+            dialog.removeEventListener('transitionend', closeTransitionEnd);
+            closeTransitionEnd = null;
+        }
+        closing = false;
         if (dialog.open) dialog.close();
-        restorePage();
+        else restorePage();
+    };
+    const closeMenu = (animate = true) => {
+        if (!dialog.open) {
+            restorePage();
+            return;
+        }
+        if (closing && animate) return;
+        if (openingFrame) {
+            window.cancelAnimationFrame(openingFrame);
+            openingFrame = 0;
+        }
+
+        const shouldAnimate = animate &&
+            dialog.classList.contains('is-visible') &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        dialog.classList.remove('is-visible');
+        if (!shouldAnimate) {
+            finishClose();
+            restorePage();
+            return;
+        }
+
+        closing = true;
+        closeTransitionEnd = (event) => {
+            if (event.target === dialog && event.propertyName === 'clip-path') finishClose();
+        };
+        dialog.addEventListener('transitionend', closeTransitionEnd);
+        closingTimer = window.setTimeout(finishClose, 450);
     };
 
     openers.forEach((link) => {
@@ -124,6 +165,10 @@
                 dialog.append(frame);
             }
             dialog.showModal();
+            openingFrame = window.requestAnimationFrame(() => {
+                openingFrame = 0;
+                if (dialog.open) dialog.classList.add('is-visible');
+            });
             link.setAttribute('aria-expanded', 'true');
             if (ready) frame.contentWindow.postMessage({ type: messagePrefix + 'open' }, targetOrigin);
             frame.focus({ preventScroll: true });
@@ -135,7 +180,7 @@
         closeMenu();
     });
     dialog.addEventListener('close', restorePage);
-    window.addEventListener('pagehide', closeMenu);
+    window.addEventListener('pagehide', () => closeMenu(false));
     window.addEventListener('message', (event) => {
         if (event.source !== frame.contentWindow || !isSameOrigin(event)) return;
         if (event.data?.type === messagePrefix + 'ready') {
@@ -146,7 +191,7 @@
         } else if (event.data?.type === messagePrefix + 'navigate' && dialog.open) {
             const url = new URL(event.data.href, document.baseURI);
             if (url.origin !== location.origin || url.protocol !== location.protocol) return;
-            closeMenu();
+            closeMenu(false);
             window.location.assign(url.href);
         }
     });

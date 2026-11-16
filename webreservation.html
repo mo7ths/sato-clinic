@@ -25,14 +25,14 @@
     <form class="sc-extra-form-card sc-extra-reservation-card" aria-label="Web予約フォーム">
       <section class="sc-extra-form-step sc-extra-reservation-step-1" aria-labelledby="reservation-step-1">
         <h2 class="sc-extra-step-heading" id="reservation-step-1"><span class="sc-extra-step-number">1</span><span>受診内容を選択</span></h2>
-        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-start">
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-start sc-extra-field-label-gap">
           <legend class="sc-extra-field-label">受診区分 <span class="sc-extra-required">*</span></legend>
           <div class="sc-extra-option-grid sc-extra-two-col sc-extra-reservation-options">
             <label class="sc-extra-choice"><input type="radio" name="visit" value="first" checked><span>初診の方</span></label>
             <label class="sc-extra-choice"><input type="radio" name="visit" value="return"><span>再診の方</span></label>
           </div>
         </fieldset>
-        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-visit-type">
+        <fieldset class="sc-extra-form-field sc-extra-field-radio sc-extra-field-visit-type sc-extra-field-label-gap">
           <legend class="sc-extra-field-label">診療内容 <span class="sc-extra-required">*</span></legend>
           <div class="sc-extra-option-grid sc-extra-two-col sc-extra-reservation-options">
             <label class="sc-extra-choice"><input type="radio" name="department" value="internal" checked><span>一般内科</span></label>
@@ -53,7 +53,7 @@
           <label class="sc-extra-field-label" for="visit-date">ご希望日 <span class="sc-extra-required">*</span></label>
           <div class="sc-extra-input-with-icon">
             <input id="visit-date" name="visit_date" type="date" lang="en-US" aria-required="true">
-            <span class="sc-extra-calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M7 2v6M17 2v6M3 10h18"/><path d="M7 13h2M12 13h2M17 13h0M7 17h2M12 17h2M17 17h0"/></svg></span>
+            <span class="sc-extra-calendar-icon" aria-hidden="true"><img src="./assets/web_reservation_calendar_clean.svg" alt=""></span>
           </div>
         </div>
         <div class="sc-extra-form-field sc-extra-field-text-after">
@@ -82,7 +82,7 @@
           <label class="sc-extra-field-label" for="birthdate">生年月日 <span class="sc-extra-required">*</span></label>
           <div class="sc-extra-input-with-icon">
             <input id="birthdate" name="birthdate" type="date" lang="en-US" aria-required="true">
-            <span class="sc-extra-calendar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M7 2v6M17 2v6M3 10h18"/><path d="M7 13h2M12 13h2M17 13h0M7 17h2M12 17h2M17 17h0"/></svg></span>
+            <span class="sc-extra-calendar-icon" aria-hidden="true"><img src="./assets/web_reservation_calendar_clean.svg" alt=""></span>
           </div>
         </div>
         <div class="sc-extra-form-field sc-extra-field-text-after">
